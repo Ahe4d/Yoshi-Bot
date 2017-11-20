@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AheadBL/selfbit.git"
+    "url": "git+https://github.com/Ahe4d/selfbit.git"
   },
   "keywords": [
     "discord"
@@ -23,7 +23,7 @@
   "author": "AheadBL",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AheadBL/selfbit/issues"
+    "url": "https://github.com/Ahe4d/selfbit/issues"
   },
-  "homepage": "https://github.com/AheadBL/selfbit#readme"
+  "homepage": "https://github.com/Ahe4d/selfbit#readme"
 }
