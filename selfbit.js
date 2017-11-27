@@ -1,3 +1,11 @@
+try { 
+    var package = require("./package.json");
+    console.log("\x1b[5m\x1b[36m", "Selfbit", "\x1b[35m", "version " + package.version, "\x1b[0m");
+}
+catch (e) {
+    console.log("Hmm... no 'package.json'... are you a pirate?");
+}
+
 try {
     var Discord = require("discord.js");
 }
@@ -42,7 +50,6 @@ function clean(text) {
 var client = new Discord.Client();
 
 client.on('ready', () => {
-  console.log("\x1b[5m\x1b[36m", "Selfbit version", "\x1b[35m", "1.0.0", "\x1b[0m");
   console.log(`Logged in as ${client.user.tag}!`);
 });
 client.on("message", function (msg) {
