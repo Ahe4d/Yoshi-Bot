@@ -1,6 +1,6 @@
 try { 
     var package = require("./package.json");
-    console.log("\x1b[5m\x1b[36m", "Selfbit", "\x1b[35m", "version " + package.version, "\x1b[0m");
+    console.log("\x1b[5m\x1b[36m", "Selfbit", "\x1b[35m", package.version, "\x1b[0m");
 }
 catch (e) {
     console.log("Hmm... no 'package.json'... are you a pirate?");
