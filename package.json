@@ -1,0 +1,35 @@
+{
+  "name": "selfbit",
+  "version": "1.0.0",
+  "description": "Discord Selfbot written in Node.js",
+  "main": "selfbit.js",
+  "dependencies": {
+    "clear-require": "^2.0.0",
+    "cpu": "^1.0.1",
+    "discord.js": "^11.2.1",
+    "ffmpeg-binaries": "^3.2.2-3",
+    "opusscript": "0.0.4",
+    "plist": "^2.1.0",
+    "random-hex-color": "^1.0.1",
+    "random-number-generator": "^1.0.2",
+    "simple-git": "^1.77.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AheadBL/selfbit.git"
+  },
+  "keywords": [
+    "discord"
+  ],
+  "author": "AheadBL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AheadBL/selfbit/issues"
+  },
+  "homepage": "https://github.com/AheadBL/selfbit#readme"
+}
