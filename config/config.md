@@ -7,6 +7,8 @@ The structure for `config.json` is as follows:
 {
   "prefix": "prefix", //selfbot prefix, something like 'a!'
   "token": "clienttoken" //client token, can be grabbed in the desktop client by going into developer tools > application > local storage, obviously you shouldn't give this to anyone
-}```
+}
+```
+
 
 After you are finished making changes to the configuration, save the file as `config.json`.
