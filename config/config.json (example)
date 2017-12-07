@@ -1,4 +1,4 @@
 {
-    "prefix": "command prefix",
-    "token": "client token"
+    "prefix": "prefix",
+    "token": "clienttoken"
 }
