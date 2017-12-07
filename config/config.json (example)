@@ -1,5 +1,4 @@
 {
     "prefix": "command prefix",
-    "token": "client token",
-    "version": "2.0.0-DEV"
+    "token": "client token"
 }
