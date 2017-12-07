@@ -1,14 +1,12 @@
-# selfbit - configuration
+# Configuration
 
-The `config.json` defines several settings use, such as the client token and selfbot prefix.
+The `config.json` defines several settings for the selfbot, such as the client token (for logging into the Discord API) and the selfbot prefix (for "talking" to the selfbot)
 
-The structure for `config.json` looks like this:
+The structure for `config.json` is as follows:
 ```json
 {
-   by using developer mode, in user settings > appearance
   "prefix": "prefix", //selfbot prefix, something like 'a!'
-  "token": "clienttoken", //your client token, can be grabbed in the desktop client by going into developer tools > application > local storage, obviously you shouldn't give this to anyone
-  "version": "whatever version lol" //don't touch please thanks
+  "token": "clienttoken", //client token, can be grabbed in the desktop client by going into developer tools > application > local storage, obviously you shouldn't give this to anyone
 }```
 
-After you are finished setting up the configuration, save the file as `config.json`.
+After you are finished making changes to the configuration, save the file as `config.json`.
