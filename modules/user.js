@@ -23,17 +23,29 @@ exports.module = {
                 infoEmbed.setAuthor("User Info", msg.author.avatarURL);
                 infoEmbed.setThumbnail(msg.author.avatarURL);
                 infoEmbed.setColor(rhc());
+
                 if (msg.author.premium)
-                    infoEmbed.setTitle("💲 " + msg.author.username + "#" + msg.author.discriminator);
+                    if (msg.member.nickname)
+                        infoEmbed.setTitle("💲 " + msg.author.username + "#" + msg.author.discriminator + " (" + msg.member.nickname + ")");
+                    else
+                        infoEmbed.setTitle("💲 " + msg.author.username + "#" + msg.author.discriminator);
                 else
-                    infoEmbed.setTitle(msg.author.username + "#" + msg.author.discriminator);
-                if (msg.author.presence.game)
-                    infoEmbed.setDescription(msg.author.presence.game.name);
+                    if (msg.member.nickname)
+                        infoEmbed.setTitle(msg.author.username + "#" + msg.author.discriminator + " (" + msg.member.nickname + ")");
+                    else
+                        infoEmbed.setTitle(msg.author.username + "#" + msg.author.discriminator);
+
+                if (msg.author.presence.status == "online" || msg.author.presence.status == "idle" || msg.author.presence.status == "dnd")
+                    if (msg.author.presence.game)
+                        infoEmbed.setDescription(msg.author.presence.status + ", playing " + msg.author.presence.game.name);
+                    else
+                        infoEmbed.setDescription(msg.author.presence.status);
+                else
+                    infoEmbed.setDescription(msg.author.presence.status);
+
                 infoEmbed.addField("ID", msg.author.id, true);
                 infoEmbed.addField("Account Created", msg.author.createdAt, true);
                 infoEmbed.addField("Joined Server", msg.member.joinedAt, true);
-                if(msg.member.nickname)
-                    infoEmbed.addField("Nickname", msg.member.nickname, true);
                 infoEmbed.addField("Roles", rolesString, true);
                 infoEmbed.setFooter(msg.author.username, msg.author.avatarURL);
                 infoEmbed.setTimestamp();
@@ -51,14 +63,31 @@ exports.module = {
                     rolesString = roles.join(', ');
                 infoEmbed.setAuthor("User Info", msg.author.avatarURL);
                 infoEmbed.setColor(rhc());
+
                 if (user.user.premium)
-                    infoEmbed.setTitle("💲 " + user.user.username + "#" + user.user.discriminator);
+                    if (user.nickname)
+                        infoEmbed.setTitle("💲 " + user.user.username + "#" + user.user.discriminator + " (" + user.nickname + ")");
+                    else
+                        infoEmbed.setTitle("💲 " + user.user.username + "#" + user.user.discriminator);
                 else if(user.user.bot)
-                    infoEmbed.setTitle("🤖 " + user.user.username + "#" + user.user.discriminator);
+                    if (user.nickname)
+                        infoEmbed.setTitle("🤖 " + user.user.username + "#" + user.user.discriminator + " (" + user.nickname + ")");
+                    else
+                        infoEmbed.setTitle("🤖 " + user.user.username + "#" + user.user.discriminator);
                 else
-                    infoEmbed.setTitle(user.user.username + "#" + user.user.discriminator);
-                if (user.user.presence.game)
-                    infoEmbed.setDescription("Playing **" + user.user.presence.game.name + "**");
+                    if (user.nickname)
+                        infoEmbed.setTitle(user.user.username + "#" + user.user.discriminator + " (" + user.nickname + ")");
+                    else
+                        infoEmbed.setTitle(user.user.username + "#" + user.user.discriminator);
+
+                if (user.user.presence.status == "online" || user.user.presence.status == "idle" || user.user.presence.status == "dnd")
+                    if (user.user.presence.game)
+                        infoEmbed.setDescription(user.user.presence.status + ", playing " + user.user.presence.game.name);
+                    else
+                        infoEmbed.setDescription(user.user.presence.status);
+                else
+                    infoEmbed.setDescription(user.user.presence.status);
+                    
                 infoEmbed.addField("ID", user.user.id, true);
                 infoEmbed.addField("Account Created", user.user.createdAt, true);
                 infoEmbed.setThumbnail(user.user.avatarURL);
