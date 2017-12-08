@@ -15,21 +15,37 @@ exports.module = {
             let rolesString = '*none*';
             if (roles.length > 0)
             rolesString = roles.join(', ');
+            const channels = msg.guild.channels.map(ty => ty.type),
+                presences = msg.guild.presences.map(st => st.status)
+            let guildChannels = 0,
+                onlineMembers = 0;
+
+            for (const i in presences) {
+    			      if (presences[i] !== 'offline') {
+    				        onlineMembers += 1;
+    			      }
+    		    }
+		        for (const i in channels) {
+			          if (channels[i] === 'text') {
+				            guildChannels += 1;
+			          }
+		        }
             var serverEmbed = new Discord.RichEmbed();
             serverEmbed.setAuthor("Guild Info", msg.author.avatarURL);
             serverEmbed.setTitle(msg.guild.name);
             serverEmbed.setColor(rhc());
-            serverEmbed.setDescription(msg.guild.memberCount + " members");
+            serverEmbed.setDescription(msg.guild.memberCount + " members, " + onlineMembers + " online");
             serverEmbed.setThumbnail(msg.guild.iconURL);
-            serverEmbed.addField("ID", msg.guild.id);
-            serverEmbed.addField("Created On", msg.guild.createdAt);
+            serverEmbed.addField("ID", msg.guild.id, true);
+            serverEmbed.addField("Created On", msg.guild.createdAt, true);
             if(msg.guild.owner.user.premium)
-                serverEmbed.addField("Owner", "💲 " + msg.guild.owner.user.username + "#" + msg.guild.owner.user.discriminator);
+                serverEmbed.addField("Owner", "💲 " + msg.guild.owner.user.username + "#" + msg.guild.owner.user.discriminator, true);
             else
-                serverEmbed.addField("Owner", msg.guild.owner.user.username + "#" + msg.guild.owner.user.discriminator);
-            serverEmbed.addField("Region", msg.guild.region);
-            //serverEmbed.addField("Emojis", msg.guild.emojis.array().join(", ")); disabled because of rich embed field character limit
-            //serverEmbed.addField("Roles", rolesString); disabled because of rich embed field character limit
+                serverEmbed.addField("Owner", msg.guild.owner.user.username + "#" + msg.guild.owner.user.discriminator, true);
+            serverEmbed.addField("Region", msg.guild.region, true);
+            serverEmbed.addField("# of Emojis", msg.guild.emojis.size, true);
+            serverEmbed.addField("# of Roles", msg.guild.roles.size, true);
+            serverEmbed.addField("# of Channels", guildChannels, true);
             serverEmbed.setFooter(msg.author.username, msg.author.avatarURL);
             serverEmbed.setTimestamp();
             msg.channel.send("", { embed: serverEmbed });
