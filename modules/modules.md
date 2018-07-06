@@ -33,5 +33,6 @@ exports.module = { //defining the module
       msg.channel.send("This is a module process");
     }
   }
-};```
+};
+```
 >Modules must be named `module.js` and must follow the structure as shown above
